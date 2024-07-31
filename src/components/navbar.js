@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
 
 function Navbar() {
-  const location = useLocation();
-  const navigate = useNavigate();
+  
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {

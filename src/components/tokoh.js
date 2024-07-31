@@ -1,7 +1,6 @@
-import React, { useRef, useState } from 'react';
-import Navbar from '../components/navbar';
+import React, { useState } from 'react';
 import { sections, contents } from '../data';
-import { Virtual, Navigation, Pagination, Loop } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
@@ -9,7 +8,6 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 function Tokoh() {
-    const [swiperRef, setSwiperRef] = useState(null);
     const [currentSlide, setCurrentSlide] = useState(0);
 
     return (
@@ -21,7 +19,6 @@ function Tokoh() {
 
                         <Swiper
                             modules={[Navigation, Pagination]}
-                            onSwiper={setSwiperRef}
                             centeredSlides={true}
                             breakpoints={{
                                 430: {

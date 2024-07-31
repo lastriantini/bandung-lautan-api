@@ -48,6 +48,7 @@ function TimelineLeft(props) {
                             {title}
                         </p>
                         <img
+                            alt="RedLine.png"
                             className="redline-left"
                             src={`/img/RedLine.png`}
                             style={{ margin: "0 0 0 20wv" }}
