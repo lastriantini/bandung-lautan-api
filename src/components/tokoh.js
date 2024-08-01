@@ -21,7 +21,35 @@ function Tokoh() {
                             modules={[Navigation, Pagination]}
                             centeredSlides={true}
                             breakpoints={{
-                                430: {
+                                320: {
+                                    slidesPerView: 3,
+                                    spaceBetween: -98,
+                                },
+                                350: {
+                                    slidesPerView: 3,
+                                    spaceBetween: -109,
+                                },
+                                359: {
+                                    slidesPerView: 3,
+                                    spaceBetween: -111,
+                                },
+                                370: {
+                                    slidesPerView: 3,
+                                    spaceBetween: -114,
+                                },
+                                380: {
+                                    slidesPerView: 3,
+                                    spaceBetween: -119,
+                                },
+                                400: {
+                                    slidesPerView: 3,
+                                    spaceBetween: -123,
+                                },
+                                410: {
+                                    slidesPerView: 3,
+                                    spaceBetween: -126,
+                                },
+                                420: {
                                     slidesPerView: 3,
                                     spaceBetween: -130,
                                 },
@@ -35,15 +63,27 @@ function Tokoh() {
                                 },
                                 1000: {
                                     slidesPerView:3,
-                                    spaceBetween:-300,
+                                    spaceBetween:-310,
+                                },
+                                1050: {
+                                    slidesPerView:3,
+                                    spaceBetween:-320,
                                 },
                                 1100: {
                                     slidesPerView:3,
                                     spaceBetween:-350,
                                 },
-                                1300: {
+                                1190: {
+                                    slidesPerView:3,
+                                    spaceBetween:-370,
+                                },
+                                1250: {
                                     slidesPerView:3,
                                     spaceBetween:-400,
+                                },
+                                1380: {
+                                    slidesPerView:3,
+                                    spaceBetween:-435,
                                 }
                             }}
                             // pagination={{
