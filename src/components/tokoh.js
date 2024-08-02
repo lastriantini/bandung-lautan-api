@@ -12,7 +12,7 @@ function Tokoh() {
 
     return (
         <>
-            <div id='tokoh' className="">
+            <div id='tokoh' className="" >
                 {sections.filter((section) => section.name === "tokoh-pejuang").map((section, index) => (
                     <>
                         <p style={{ fontSize: "4.5vw", margin: "0 9%" }} className="alumni-sans-regular text-red-900 z-30 font-extrabold border-y drop-shadow border-red-900 text-center">{section.title}</p>

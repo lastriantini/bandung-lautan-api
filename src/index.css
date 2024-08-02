@@ -129,6 +129,34 @@ body {
       transform: translateX(0);
   }
 }
+
+@media (max-width: 600px) { 
+  .timeline-left .desc {
+    font-size: 2.3vw !important;
+    line-height: 2.8vw;
+  }
+  .timeline-right .desc {
+    font-size: 2.3vw !important;
+    line-height: 2.8vw;
+  }
+
+  .img-timeline-left {
+    margin: 2vw 0 0 0;
+    width: 115% !important;
+  }
+  .timeline-title-left{
+    width: 130% !important;
+  }
+
+  .img-timeline-right {
+    width: 115% !important;
+    margin: 2vw 0 0 -9.8vw;
+  }
+
+  #tokoh {
+    padding:3vw 0 !important;
+  }
+}
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
