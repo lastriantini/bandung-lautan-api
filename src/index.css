@@ -117,6 +117,15 @@ body, html {
   transform: translateX(0);
 }
 
+.swiper-next {
+  float: right;
+  z-index: 5 !important;
+  /* margin: -2vw 0 0 0; */
+}
+.swiper-prev {
+
+}
+
 body {
   overflow : hidden;
 }
@@ -132,12 +141,14 @@ body {
 
 @media (max-width: 600px) { 
   .timeline-left .desc {
+    margin: -0.8vw 0 0 1.2vw !important;
     font-size: 2.3vw !important;
-    line-height: 2.8vw;
+    line-height: 2.7vw;
   }
   .timeline-right .desc {
+    margin: -0.9vw 1.2vw 0 0 !important;
     font-size: 2.3vw !important;
-    line-height: 2.8vw;
+    line-height: 2.7vw;
   }
 
   .img-timeline-left {
@@ -157,6 +168,7 @@ body {
     padding:3vw 0 !important;
   }
 }
+
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';

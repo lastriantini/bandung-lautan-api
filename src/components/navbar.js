@@ -36,7 +36,7 @@ function Navbar() {
   };
 
   return (
-    <nav style={{margin: "0 8%", padding: "1vw"}} className="bg-transparent justify-center border-b border-red-950">
+    <nav style={{margin: "0 8%", padding: "1vw"}} className="bg-transparent justify-center border-b border-red-900">
       <div className="container flex justify-between items-center">
         <div style={{margin: "0 7.7vw"}} className="flex">
           <button
