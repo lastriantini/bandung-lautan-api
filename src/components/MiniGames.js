@@ -12,17 +12,20 @@ const shuffleArray = (array) => {
 
 // Function to ensure no matching pairs are adjacent
 const shuffleWithoutAdjacentPairs = (cards) => {
-  let shuffledCards = shuffleArray([...cards]);
-
-  while (shuffledCards.some((card, index) => {
-    const nextCard = shuffledCards[index + 1];
-    return nextCard && card.id === nextCard.id;
-  })) {
-    shuffledCards = shuffleArray([...cards]);
-  }
-
-  return shuffledCards;
-};
+    let shuffledCards;
+    let hasAdjacentPairs;
+  
+    do {
+      shuffledCards = shuffleArray([...cards]);
+      hasAdjacentPairs = shuffledCards.some((card, index) => {
+        const nextCard = shuffledCards[index + 1];
+        return nextCard && card.id === nextCard.id;
+      });
+    } while (hasAdjacentPairs);
+  
+    return shuffledCards;
+  };
+  
 
 const QuizApp = () => {
   const questionsAndAnswers = [
