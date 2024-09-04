@@ -10,19 +10,17 @@ const shuffleArray = (array) => {
   return array;
 };
 
-// Function to ensure no matching pairs are adjacent
 const shuffleWithoutAdjacentPairs = (cards) => {
-  let shuffledCards = shuffleArray([...cards]);
-
-  while (shuffledCards.some((card, index) => {
-    const nextCard = shuffledCards[index + 1];
-    return nextCard && card.id === nextCard.id;
-  })) {
-    shuffledCards = shuffleArray([...cards]);
-  }
-
-  return shuffledCards;
-};
+    let shuffledCards;
+    do {
+      shuffledCards = shuffleArray([...cards]);
+    } while (shuffledCards.some((card, index) => {
+      const nextCard = shuffledCards[index + 1];
+      return nextCard && card.id === nextCard.id;
+    }));
+    return shuffledCards;
+  };
+  
 
 const QuizApp = () => {
   const questionsAndAnswers = [
@@ -40,16 +38,14 @@ const QuizApp = () => {
   const [shouldResetFlip, setShouldResetFlip] = useState(false);
 
   useEffect(() => {
-    // Flatten and shuffle the questions and answers
     const cards = questionsAndAnswers.flatMap(q => [
       { id: q.id, text: q.question, type: 'question', isVisible: true, isFlipped: false },
       { id: q.id, text: q.answer, type: 'answer', isVisible: true, isFlipped: false }
     ]);
-
-    // Shuffle the cards while ensuring no adjacent pairs
+  
     const shuffledCards = shuffleWithoutAdjacentPairs(cards);
     setVisibleCards(shuffledCards);
-  }, []);
+  }, [questionsAndAnswers]);
 
   const handleCardClick = (card) => {
     if (shouldResetFlip) return;
