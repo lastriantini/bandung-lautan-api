@@ -12,26 +12,16 @@ const shuffleArray = (array) => {
 
 // Function to ensure no matching pairs are adjacent
 const shuffleWithoutAdjacentPairs = (cards) => {
-    const shuffleOnce = (array) => {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
-    };
+  let shuffledCards = shuffleArray([...cards]);
 
-    let shuffledCards;
-    let hasAdjacentPairs;
+  while (shuffledCards.some((card, index) => {
+    const nextCard = shuffledCards[index + 1];
+    return nextCard && card.id === nextCard.id;
+  })) {
+    shuffledCards = shuffleArray([...cards]);
+  }
 
-    do {
-        shuffledCards = shuffleOnce([...cards]);
-        hasAdjacentPairs = shuffledCards.some((card, index) => {
-            const nextCard = shuffledCards[index + 1];
-            return nextCard && card.id === nextCard.id;
-        });
-    } while (hasAdjacentPairs);
-
-    return shuffledCards;
+  return shuffledCards;
 };
 
 const QuizApp = () => {
@@ -56,6 +46,7 @@ const QuizApp = () => {
       { id: q.id, text: q.answer, type: 'answer', isVisible: true, isFlipped: false }
     ]);
 
+    // Shuffle the cards while ensuring no adjacent pairs
     const shuffledCards = shuffleWithoutAdjacentPairs(cards);
     setVisibleCards(shuffledCards);
   }, []);
@@ -103,7 +94,7 @@ const QuizApp = () => {
       <h1 className='text-center text-[#7D0A0A] lg:text-[2vw] text-bold pt-[2vw] rasa-regular xs:text-[4vw]'>Pasangkan dengan jawaban yang tepat</h1>
       <h1 className='text-center rasa-regular'>Skor: {score}</h1>
       {isAllMatched && <h1 className='text-[#7D0A0A] text-center anton-regular text-[3vw] mt-[10vw]'>Selamat! Anda sudah menyelesaikan permainan!</h1>}
-      <div style={styles.container} className='mx-[15vw]'>
+      <div style={styles.container} className='mx-[12vw]'>
         {visibleCards.map((card, index) => (
           <QuizCard
             key={index}
