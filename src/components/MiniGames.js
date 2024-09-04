@@ -49,7 +49,6 @@ const QuizApp = () => {
       { id: q.id, text: q.answer, type: 'answer', isVisible: true, isFlipped: false }
     ]);
 
-    // Shuffle the cards while ensuring no adjacent pairs
     const shuffledCards = shuffleWithoutAdjacentPairs(cards);
     setVisibleCards(shuffledCards);
   }, []);
