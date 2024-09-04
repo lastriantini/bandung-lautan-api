@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import QuizCard from './Games/QuizCard';
 
 // Function to shuffle an array
@@ -11,26 +11,32 @@ const shuffleArray = (array) => {
 };
 
 const shuffleWithoutAdjacentPairs = (cards) => {
-    let shuffledCards;
-    do {
-      shuffledCards = shuffleArray([...cards]);
-    } while (shuffledCards.some((card, index) => {
+  let shuffledCards;
+  const tryShuffle = () => {
+    shuffledCards = shuffleArray([...cards]);
+    return shuffledCards.some((card, index) => {
       const nextCard = shuffledCards[index + 1];
       return nextCard && card.id === nextCard.id;
-    }));
-    return shuffledCards;
+    });
   };
-  
+
+  while (tryShuffle()) {
+    // Continue shuffling until no adjacent pairs are the same
+  }
+
+  return shuffledCards;
+};
 
 const QuizApp = () => {
-  const questionsAndAnswers = [
+  // Memoize questionsAndAnswers to avoid unnecessary re-renders
+  const questionsAndAnswers = useMemo(() => [
     { id: 1, question: 'Pencipta lagu Halo-Halo Bandung?', answer: <img src="/img/IsmailMarzuki.jpeg" alt="Ismail Marzuki" style={{ width: '30vw', height: '10vw', marginTop: '-2vw' }} /> },
     { id: 2, question: 'Tanggal peristiwa Bandung Lautan Api?', answer: '23 Maret 1946' },
     { id: 3, question: 'Komandan Divisi III Tentara Republik Indonesia (TRI)?', answer: <img src="/img/KolonelAbdulHarisNasution.png" alt="Kolonel Abdul Haris Nasution" style={{ width: '30vw', height: '10vw', marginTop: '-2vw' }} /> },
     { id: 4, question: 'Pencetus ide untuk membakar Bandung Selatan menjadi lautan api?', answer: 'Mayor Rukana' },
     { id: 5, question: 'Yang ditugaskan dalam penghancuran gudang amunisi tentara sekutu?', answer: <img src="/img/MohammadToha.png" alt="Mohammad Toha" style={{ width: '30vw', height: '10vw', marginTop: '-2vw' }} /> },
     { id: 6, question: 'NICA memberikan senjata kepada bekas anggota?', answer: 'Koninklijk Nederlands Indisch Leger (KNIL)' },
-  ];
+  ], []);
 
   const [selectedCards, setSelectedCards] = useState([]);
   const [score, setScore] = useState(0);
@@ -42,7 +48,7 @@ const QuizApp = () => {
       { id: q.id, text: q.question, type: 'question', isVisible: true, isFlipped: false },
       { id: q.id, text: q.answer, type: 'answer', isVisible: true, isFlipped: false }
     ]);
-  
+
     const shuffledCards = shuffleWithoutAdjacentPairs(cards);
     setVisibleCards(shuffledCards);
   }, [questionsAndAnswers]);
