@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<MainDashboard />} />
-          {/* <Route path="/games" element={<MiniGame />} /> */}
+          <Route path="/games" element={<MiniGame />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
