@@ -94,6 +94,15 @@ body, html {
   height: 50vw;
 }
 
+@media (max-width: 640px) { 
+  .bg-img {
+    height: 180vw !important;
+  }
+  #home {
+    height: 90% !important;
+  }
+ }
+
 @media (min-width: 640px) { 
   #home {
     height: 90% !important;
