@@ -16,7 +16,7 @@ export const sections = [
     {
         id: 3,
         name: "timeline-left",
-        title: "21 november 1945",
+        title: "21 November 1945",
         description : "Malam tanggal 21 November 1945, TKR (Tentara Keamanan Rakyat) dan badan-badan perjuangan melancarkan serangan terhadap kedudukan-kedudukan Inggris di bagian utara, termasuk Hotel Homann dan Hotel Preanger yang mereka gunakan sebagai markas InggrisSelain di Bandung, aksi serupa juga terjadi di Surabaya, Manado, Sukabumi, Medan, Ambarawa dan Biak.",
         img : "./Img2Left.png"
     },

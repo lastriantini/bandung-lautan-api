@@ -54,6 +54,7 @@ body, html {
 .swiper-slide img {
   margin: 0 auto !important;
 }
+
 .swiper-slide-active {
   transform: scale(1.2) !important;
   z-index: 1; 
@@ -84,6 +85,13 @@ body, html {
   background-position: center;
   margin-bottom: -1vw !important;
   padding-bottom: 0.1vw;
+}
+.bg-img {
+  background-image: url("footer.png");
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 50vw;
 }
 
 @media (min-width: 640px) { 
