@@ -96,7 +96,7 @@ const QuizApp = () => {
       <h1 className='text-center text-[#7D0A0A] lg:text-[2vw] text-bold pt-[2vw] rasa-regular xs:text-[4vw]'>Pasangkan dengan jawaban yang tepat</h1>
       <h1 className='text-center rasa-regular'>Skor: {score}</h1>
       {isAllMatched && <h1 className='text-[#7D0A0A] text-center anton-regular text-[3vw] mt-[10vw]'>Selamat! Anda sudah menyelesaikan permainan!</h1>}
-      <div style={styles.container} className='mx-[12vw]'>
+      <div style={styles.container} className='lg:mx-[15vw] xs:mx-[10vw]'>
         {visibleCards.map((card, index) => (
           <QuizCard
             key={index}
